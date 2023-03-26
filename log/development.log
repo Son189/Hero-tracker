@@ -1,0 +1,839 @@
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateHeros (20230326100451)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "heros" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "super_name" varchar, "power_id" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230326100451"]]
+  [1m[36mTRANSACTION (5.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateHeropowers (20230326100639)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "heropowers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "strength" varchar, "power_id" integer, "hero_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230326100639"]]
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePowers (20230326100712)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "powers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" varchar, "hero_id" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230326100712"]]
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-03-26 10:08:41.738393"], ["updated_at", "2023-03-26 10:08:41.738393"]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Kamala Khan"], ["super_name", "Ms. Marvel"], ["power_id", nil], ["created_at", "2023-03-26 10:08:41.780070"], ["updated_at", "2023-03-26 10:08:41.780070"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.2ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Doreen Green"], ["super_name", "Squirrel Girl"], ["power_id", nil], ["created_at", "2023-03-26 10:08:41.787967"], ["updated_at", "2023-03-26 10:08:41.787967"]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.2ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Gwen Stacy"], ["super_name", "Spider-Gwen"], ["power_id", nil], ["created_at", "2023-03-26 10:08:41.795088"], ["updated_at", "2023-03-26 10:08:41.795088"]]
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "super strength"], ["description", "gives the wielder super-human strengths"], ["hero_id", nil], ["created_at", "2023-03-26 10:08:41.821373"], ["updated_at", "2023-03-26 10:08:41.821373"]]
+  [1m[36mTRANSACTION (5.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "flight"], ["description", "gives the wielder the ability to fly through the skies at supersonic speed"], ["hero_id", nil], ["created_at", "2023-03-26 10:08:41.830348"], ["updated_at", "2023-03-26 10:08:41.830348"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.6ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "invisibility"], ["description", "renders the wielder invisible to the naked eye"], ["hero_id", nil], ["created_at", "2023-03-26 10:08:41.838753"], ["updated_at", "2023-03-26 10:08:41.838753"]]
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Kamala Khan"], ["super_name", "Ms. Marvel"], ["power_id", nil], ["created_at", "2023-03-26 10:10:20.067390"], ["updated_at", "2023-03-26 10:10:20.067390"]]
+  [1m[36mTRANSACTION (8.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.6ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Doreen Green"], ["super_name", "Squirrel Girl"], ["power_id", nil], ["created_at", "2023-03-26 10:10:20.079637"], ["updated_at", "2023-03-26 10:10:20.079637"]]
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.6ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Gwen Stacy"], ["super_name", "Spider-Gwen"], ["power_id", nil], ["created_at", "2023-03-26 10:10:20.090277"], ["updated_at", "2023-03-26 10:10:20.090277"]]
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.6ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "super strength"], ["description", "gives the wielder super-human strengths"], ["hero_id", nil], ["created_at", "2023-03-26 10:10:20.121102"], ["updated_at", "2023-03-26 10:10:20.121102"]]
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.5ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "flight"], ["description", "gives the wielder the ability to fly through the skies at supersonic speed"], ["hero_id", nil], ["created_at", "2023-03-26 10:10:20.132964"], ["updated_at", "2023-03-26 10:10:20.132964"]]
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.6ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "invisibility"], ["description", "renders the wielder invisible to the naked eye"], ["hero_id", nil], ["created_at", "2023-03-26 10:10:20.144130"], ["updated_at", "2023-03-26 10:10:20.144130"]]
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.6ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Kamala Khan"], ["super_name", "Ms. Marvel"], ["power_id", nil], ["created_at", "2023-03-26 10:11:14.785101"], ["updated_at", "2023-03-26 10:11:14.785101"]]
+  [1m[36mTRANSACTION (8.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.4ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Doreen Green"], ["super_name", "Squirrel Girl"], ["power_id", nil], ["created_at", "2023-03-26 10:11:14.800876"], ["updated_at", "2023-03-26 10:11:14.800876"]]
+  [1m[36mTRANSACTION (7.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.4ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Gwen Stacy"], ["super_name", "Spider-Gwen"], ["power_id", nil], ["created_at", "2023-03-26 10:11:14.814644"], ["updated_at", "2023-03-26 10:11:14.814644"]]
+  [1m[36mTRANSACTION (7.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "super strength"], ["description", "gives the wielder super-human strengths"], ["hero_id", nil], ["created_at", "2023-03-26 10:11:14.847548"], ["updated_at", "2023-03-26 10:11:14.847548"]]
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.4ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "flight"], ["description", "gives the wielder the ability to fly through the skies at supersonic speed"], ["hero_id", nil], ["created_at", "2023-03-26 10:11:14.857525"], ["updated_at", "2023-03-26 10:11:14.857525"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.4ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "invisibility"], ["description", "renders the wielder invisible to the naked eye"], ["hero_id", nil], ["created_at", "2023-03-26 10:11:14.866100"], ["updated_at", "2023-03-26 10:11:14.866100"]]
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Kamala Khan"], ["super_name", "Ms. Marvel"], ["power_id", nil], ["created_at", "2023-03-26 10:16:16.754585"], ["updated_at", "2023-03-26 10:16:16.754585"]]
+  [1m[36mTRANSACTION (8.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.6ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Doreen Green"], ["super_name", "Squirrel Girl"], ["power_id", nil], ["created_at", "2023-03-26 10:16:16.767753"], ["updated_at", "2023-03-26 10:16:16.767753"]]
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.5ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Gwen Stacy"], ["super_name", "Spider-Gwen"], ["power_id", nil], ["created_at", "2023-03-26 10:16:16.778955"], ["updated_at", "2023-03-26 10:16:16.778955"]]
+  [1m[36mTRANSACTION (7.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.4ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "super strength"], ["description", "gives the wielder super-human strengths"], ["hero_id", nil], ["created_at", "2023-03-26 10:16:16.810233"], ["updated_at", "2023-03-26 10:16:16.810233"]]
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.5ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "flight"], ["description", "gives the wielder the ability to fly through the skies at supersonic speed"], ["hero_id", nil], ["created_at", "2023-03-26 10:16:16.821698"], ["updated_at", "2023-03-26 10:16:16.821698"]]
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.5ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "invisibility"], ["description", "renders the wielder invisible to the naked eye"], ["hero_id", nil], ["created_at", "2023-03-26 10:16:16.831944"], ["updated_at", "2023-03-26 10:16:16.831944"]]
+  [1m[36mTRANSACTION (5.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.5ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Kamala Khan"], ["super_name", "Ms. Marvel"], ["power_id", nil], ["created_at", "2023-03-26 10:16:16.842414"], ["updated_at", "2023-03-26 10:16:16.842414"]]
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.4ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Doreen Green"], ["super_name", "Squirrel Girl"], ["power_id", nil], ["created_at", "2023-03-26 10:16:16.852627"], ["updated_at", "2023-03-26 10:16:16.852627"]]
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.5ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Gwen Stacy"], ["super_name", "Spider-Gwen"], ["power_id", nil], ["created_at", "2023-03-26 10:16:16.862572"], ["updated_at", "2023-03-26 10:16:16.862572"]]
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.5ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "super strength"], ["description", "gives the wielder super-human strengths"], ["hero_id", nil], ["created_at", "2023-03-26 10:16:16.873062"], ["updated_at", "2023-03-26 10:16:16.873062"]]
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.5ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "flight"], ["description", "gives the wielder the ability to fly through the skies at supersonic speed"], ["hero_id", nil], ["created_at", "2023-03-26 10:16:16.883813"], ["updated_at", "2023-03-26 10:16:16.883813"]]
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.4ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "invisibility"], ["description", "renders the wielder invisible to the naked eye"], ["hero_id", nil], ["created_at", "2023-03-26 10:16:16.893407"], ["updated_at", "2023-03-26 10:16:16.893407"]]
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/heroes" for ::1 at 2023-03-26 14:35:56 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/heroes"):
+  
+Started GET "/heroes" for ::1 at 2023-03-26 14:36:44 +0300
+Processing by HeroesController#index as HTML
+  [1m[36mHero Load (0.2ms)[0m  [1m[34mSELECT "heros".* FROM "heros"[0m
+  ↳ app/controllers/heroes_controller.rb:3:in `index'
+Completed 200 OK in 38ms (Views: 27.4ms | ActiveRecord: 2.0ms | Allocations: 21761)
+
+
+Started GET "/heroes" for ::1 at 2023-03-26 14:40:20 +0300
+  
+SyntaxError (/home/user/Hero-tracker/app/controllers/heroes_controller.rb:4: syntax error, unexpected local variable or method, expecting ']'
+...on: heroes , only: [:name  name ,:super_name super_name]
+...                           ^~~~
+/home/user/Hero-tracker/app/controllers/heroes_controller.rb:4: syntax error, unexpected local variable or method, expecting '.' or &. or :: or '['
+...e  name ,:super_name super_name]
+...                     ^~~~~~~~~~
+/home/user/Hero-tracker/app/controllers/heroes_controller.rb:11: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/heroes_controller.rb:4: syntax error, unexpected local variable or method, expecting ']'
+app/controllers/heroes_controller.rb:4: syntax error, unexpected local variable or method, expecting '.' or &. or :: or '['
+app/controllers/heroes_controller.rb:11: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/heroes_controller.rb:4: syntax error, unexpected local variable or method, expecting ']'
+app/controllers/heroes_controller.rb:4: syntax error, unexpected local variable or method, expecting '.' or &. or :: or '['
+app/controllers/heroes_controller.rb:11: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/heroes" for ::1 at 2023-03-26 14:42:06 +0300
+Processing by HeroesController#index as HTML
+  [1m[36mHero Load (0.3ms)[0m  [1m[34mSELECT "heros".* FROM "heros"[0m
+  ↳ app/controllers/heroes_controller.rb:4:in `index'
+Completed 200 OK in 17ms (Views: 10.9ms | ActiveRecord: 2.0ms | Allocations: 5664)
+
+
+Started GET "/heroes" for ::1 at 2023-03-26 14:42:49 +0300
+Processing by HeroesController#index as HTML
+  [1m[36mHero Load (0.2ms)[0m  [1m[34mSELECT "heros".* FROM "heros"[0m
+  ↳ app/controllers/heroes_controller.rb:4:in `index'
+Completed 200 OK in 19ms (Views: 11.0ms | ActiveRecord: 1.8ms | Allocations: 5753)
+
+
+Started GET "/heroes/1" for ::1 at 2023-03-26 14:45:43 +0300
+Processing by HeroesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHero Load (0.2ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/heroes_controller.rb:8:in `show'
+Completed 200 OK in 16ms (Views: 1.0ms | ActiveRecord: 1.2ms | Allocations: 5721)
+
+
+Started GET "/heroes/2" for ::1 at 2023-03-26 14:45:50 +0300
+Processing by HeroesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mHero Load (0.2ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/heroes_controller.rb:8:in `show'
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.2ms | Allocations: 602)
+
+
+Started GET "/hpowers" for ::1 at 2023-03-26 14:46:23 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/hpowers"):
+  
+Started GET "/powers" for ::1 at 2023-03-26 14:46:30 +0300
+Processing by PowersController#index as HTML
+  [1m[36mPower Load (0.7ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  ↳ app/controllers/powers_controller.rb:4:in `index'
+Completed 200 OK in 29ms (Views: 19.6ms | ActiveRecord: 1.7ms | Allocations: 18800)
+
+
+Started GET "/powers" for ::1 at 2023-03-26 14:47:14 +0300
+Processing by PowersController#index as HTML
+  [1m[36mPower Load (0.3ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  ↳ app/controllers/powers_controller.rb:4:in `index'
+Completed 200 OK in 16ms (Views: 11.5ms | ActiveRecord: 1.9ms | Allocations: 5756)
+
+
+Started GET "/powers/1" for ::1 at 2023-03-26 14:47:52 +0300
+Processing by PowersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPower Load (0.8ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:7:in `show'
+Completed 200 OK in 10ms (Views: 1.7ms | ActiveRecord: 0.8ms | Allocations: 723)
+
+
+Started GET "/powers/2" for ::1 at 2023-03-26 14:47:56 +0300
+Processing by PowersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPower Load (0.3ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:7:in `show'
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 597)
+
+
+Started GET "/powers/3" for ::1 at 2023-03-26 14:48:01 +0300
+Processing by PowersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:7:in `show'
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.2ms | Allocations: 597)
+
+
+Started GET "/powers/3" for ::1 at 2023-03-26 14:48:32 +0300
+Processing by PowersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPower Load (0.4ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:7:in `show'
+Completed 200 OK in 22ms (Views: 0.6ms | ActiveRecord: 2.0ms | Allocations: 4957)
+
+
+Started GET "/powers/4" for ::1 at 2023-03-26 14:48:36 +0300
+Processing by PowersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:7:in `show'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 538)
+
+
+Started GET "/powers/42" for ::1 at 2023-03-26 14:48:41 +0300
+Processing by PowersController#show as HTML
+  Parameters: {"id"=>"42"}
+  [1m[36mPower Load (0.4ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:7:in `show'
+Completed 404 Not Found in 7ms (Views: 0.7ms | ActiveRecord: 0.4ms | Allocations: 498)
+
+
+Started PATCH "/powers/2" for 127.0.0.1 at 2023-03-26 14:50:29 +0300
+Processing by PowersController#update as */*
+  Parameters: {"id"=>"2", "name"=>"supermari", "description"=>"wiztive", "power"=>{"id"=>"2", "name"=>"supermari", "description"=>"wiztive"}}
+  [1m[36mPower Load (0.5ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:15:in `update'
+[31mUnpermitted parameters: :id, :power. Context: { controller: PowersController, action: update, request: #<ActionDispatch::Request:0x00007f6308f9f340>, params: {"id"=>"2", "name"=>"supermari", "description"=>"wiztive", "controller"=>"powers", "action"=>"update", "power"=>{"id"=>"2", "name"=>"supermari", "description"=>"wiztive"}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/powers_controller.rb:17:in `update'
+  [1m[36mPower Update (1.5ms)[0m  [1m[33mUPDATE "powers" SET "name" = ?, "description" = ?, "updated_at" = ? WHERE "powers"."id" = ?[0m  [["name", "supermari"], ["description", "wiztive"], ["updated_at", "2023-03-26 11:50:29.994161"], ["id", 2]]
+  ↳ app/controllers/powers_controller.rb:17:in `update'
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/powers_controller.rb:17:in `update'
+Completed 200 OK in 32ms (Views: 0.7ms | ActiveRecord: 9.0ms | Allocations: 4050)
+
+
+Started PATCH "/powers/2" for 127.0.0.1 at 2023-03-26 14:50:43 +0300
+Processing by PowersController#update as */*
+  Parameters: {"id"=>"2", "name"=>"supe", "description"=>"wizve", "power"=>{"id"=>"2", "name"=>"supe", "description"=>"wizve"}}
+  [1m[36mPower Load (0.6ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:15:in `update'
+[31mUnpermitted parameters: :id, :power. Context: { controller: PowersController, action: update, request: #<ActionDispatch::Request:0x00007f62f0015a90>, params: {"id"=>"2", "name"=>"supe", "description"=>"wizve", "controller"=>"powers", "action"=>"update", "power"=>{"id"=>"2", "name"=>"supe", "description"=>"wizve"}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/powers_controller.rb:17:in `update'
+  [1m[36mPower Update (0.5ms)[0m  [1m[33mUPDATE "powers" SET "name" = ?, "description" = ?, "updated_at" = ? WHERE "powers"."id" = ?[0m  [["name", "supe"], ["description", "wizve"], ["updated_at", "2023-03-26 11:50:43.756951"], ["id", 2]]
+  ↳ app/controllers/powers_controller.rb:17:in `update'
+  [1m[36mTRANSACTION (8.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/powers_controller.rb:17:in `update'
+Completed 200 OK in 22ms (Views: 0.5ms | ActiveRecord: 9.4ms | Allocations: 2356)
+
+
+Started PATCH "/powers/34" for 127.0.0.1 at 2023-03-26 14:50:50 +0300
+Processing by PowersController#update as */*
+  Parameters: {"id"=>"34", "name"=>"supe", "description"=>"wizve", "power"=>{"id"=>"34", "name"=>"supe", "description"=>"wizve"}}
+  [1m[36mPower Load (0.1ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:15:in `update'
+Completed 404 Not Found in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 501)
+
+
+Started PATCH "/powers/3" for 127.0.0.1 at 2023-03-26 14:51:02 +0300
+Processing by PowersController#update as */*
+  Parameters: {"id"=>"3", "name"=>"supe", "description"=>"wizve", "power"=>{"id"=>"3", "name"=>"supe", "description"=>"wizve"}}
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:15:in `update'
+[31mUnpermitted parameters: :id, :power. Context: { controller: PowersController, action: update, request: #<ActionDispatch::Request:0x00007f6300126a28>, params: {"id"=>"3", "name"=>"supe", "description"=>"wizve", "controller"=>"powers", "action"=>"update", "power"=>{"id"=>"3", "name"=>"supe", "description"=>"wizve"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/powers_controller.rb:17:in `update'
+  [1m[36mPower Update (0.4ms)[0m  [1m[33mUPDATE "powers" SET "name" = ?, "description" = ?, "updated_at" = ? WHERE "powers"."id" = ?[0m  [["name", "supe"], ["description", "wizve"], ["updated_at", "2023-03-26 11:51:02.126446"], ["id", 3]]
+  ↳ app/controllers/powers_controller.rb:17:in `update'
+  [1m[36mTRANSACTION (8.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/powers_controller.rb:17:in `update'
+Completed 200 OK in 18ms (Views: 0.5ms | ActiveRecord: 8.9ms | Allocations: 2357)
+
+
+Started POST "/hero_powers" for 127.0.0.1 at 2023-03-26 14:51:35 +0300
+Processing by HeroPowersController#create as */*
+  Parameters: {"strength"=>"wazaa", "power_id"=>4, "hero_id"=>6, "hero_power"=>{"strength"=>"wazaa", "power_id"=>4, "hero_id"=>6}}
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms | Allocations: 6610)
+
+
+  
+NoMethodError (undefined method `to' for #<Class:0x00007f6304179dc8>):
+  
+app/models/heropower.rb:3:in `<class:Heropower>'
+app/models/heropower.rb:1:in `<top (required)>'
+app/controllers/hero_powers_controller.rb:3:in `create'
+Started POST "/hero_powers" for 127.0.0.1 at 2023-03-26 14:52:42 +0300
+Processing by HeroPowersController#create as */*
+  Parameters: {"strength"=>"waz", "power_id"=>7, "hero_id"=>5, "hero_power"=>{"strength"=>"waz", "power_id"=>7, "hero_id"=>5}}
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 0.0ms | Allocations: 5439)
+
+
+  
+NoMethodError (undefined method `to' for #<Class:0x00007f6304179dc8>):
+  
+app/models/heropower.rb:3:in `<class:Heropower>'
+app/models/heropower.rb:1:in `<top (required)>'
+app/controllers/hero_powers_controller.rb:3:in `create'
+Started POST "/hero_powers" for 127.0.0.1 at 2023-03-26 14:54:16 +0300
+Processing by HeroPowersController#create as */*
+  Parameters: {"strength"=>"waz", "power_id"=>7, "hero_id"=>5, "hero_power"=>{"strength"=>"waz", "power_id"=>7, "hero_id"=>5}}
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.0ms | Allocations: 5438)
+
+
+  
+NoMethodError (undefined method `to' for #<Class:0x00007f6304179dc8>):
+  
+app/models/heropower.rb:3:in `<class:Heropower>'
+app/models/heropower.rb:1:in `<top (required)>'
+app/controllers/hero_powers_controller.rb:3:in `create'
+Started POST "/hero_powers" for 127.0.0.1 at 2023-03-26 14:54:16 +0300
+Processing by HeroPowersController#create as */*
+  Parameters: {"strength"=>"waz", "power_id"=>7, "hero_id"=>5, "hero_power"=>{"strength"=>"waz", "power_id"=>7, "hero_id"=>5}}
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms | Allocations: 5439)
+
+
+  
+NoMethodError (undefined method `to' for #<Class:0x00007f6304179dc8>):
+  
+app/models/heropower.rb:3:in `<class:Heropower>'
+app/models/heropower.rb:1:in `<top (required)>'
+app/controllers/hero_powers_controller.rb:3:in `create'
+Started POST "/hero_powers" for 127.0.0.1 at 2023-03-26 14:54:32 +0300
+Processing by HeroPowersController#create as */*
+  Parameters: {"strength"=>"waz", "power_id"=>7, "hero_id"=>5, "hero_power"=>{"strength"=>"waz", "power_id"=>7, "hero_id"=>5}}
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 5438)
+
+
+  
+NoMethodError (undefined method `to' for #<Class:0x00007f6304179dc8>):
+  
+app/models/heropower.rb:3:in `<class:Heropower>'
+app/models/heropower.rb:1:in `<top (required)>'
+app/controllers/hero_powers_controller.rb:3:in `create'
+Started POST "/hero_powers" for 127.0.0.1 at 2023-03-26 14:54:49 +0300
+Processing by HeroPowersController#create as */*
+  Parameters: {"strength"=>"waz", "power_id"=>7, "hero_id"=>5, "hero_power"=>{"strength"=>"waz", "power_id"=>7, "hero_id"=>5}}
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 5438)
+
+
+  
+NoMethodError (undefined method `to' for #<Class:0x00007f6304179dc8>):
+  
+app/models/heropower.rb:3:in `<class:Heropower>'
+app/models/heropower.rb:1:in `<top (required)>'
+app/controllers/hero_powers_controller.rb:3:in `create'
+Started PUT "/hero_powers" for 127.0.0.1 at 2023-03-26 14:54:54 +0300
+  
+ActionController::RoutingError (No route matches [PUT] "/hero_powers"):
+  
+Started POST "/hero_powers" for 127.0.0.1 at 2023-03-26 14:55:11 +0300
+Processing by HeroPowersController#create as */*
+  Parameters: {"strength"=>"waz", "power_id"=>7, "hero_id"=>5, "hero_power"=>{"strength"=>"waz", "power_id"=>7, "hero_id"=>5}}
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 0.0ms | Allocations: 5438)
+
+
+  
+NoMethodError (undefined method `to' for #<Class:0x00007f6304179dc8>):
+  
+app/models/heropower.rb:3:in `<class:Heropower>'
+app/models/heropower.rb:1:in `<top (required)>'
+app/controllers/hero_powers_controller.rb:3:in `create'
+Started GET "/heroes" for ::1 at 2023-03-26 14:56:48 +0300
+Processing by HeroesController#index as HTML
+  [1m[36mHero Load (0.3ms)[0m  [1m[34mSELECT "heros".* FROM "heros"[0m
+  ↳ app/controllers/heroes_controller.rb:4:in `index'
+Completed 200 OK in 13ms (Views: 7.6ms | ActiveRecord: 1.0ms | Allocations: 5462)
+
+
+Started GET "/heroes/1" for ::1 at 2023-03-26 14:56:52 +0300
+Processing by HeroesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHero Load (0.3ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/heroes_controller.rb:8:in `show'
+Completed 200 OK in 5ms (Views: 0.7ms | ActiveRecord: 0.3ms | Allocations: 720)
+
+
+Started GET "/heroes/1" for ::1 at 2023-03-26 14:58:08 +0300
+Processing by HeroesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHero Load (0.6ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/heroes_controller.rb:8:in `show'
+Completed 200 OK in 8ms (Views: 1.6ms | ActiveRecord: 0.6ms | Allocations: 595)
+
+
+Started GET "/heroes/2" for ::1 at 2023-03-26 14:58:13 +0300
+Processing by HeroesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mHero Load (0.2ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/heroes_controller.rb:8:in `show'
+Completed 200 OK in 5ms (Views: 0.7ms | ActiveRecord: 0.2ms | Allocations: 595)
+
+
+Started GET "/heroes/2" for ::1 at 2023-03-26 14:58:27 +0300
+Processing by HeroesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mHero Load (0.1ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/heroes_controller.rb:8:in `show'
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.1ms | Allocations: 596)
+
+
+Started GET "/heroes/2" for ::1 at 2023-03-26 14:58:42 +0300
+Processing by HeroesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mHero Load (0.6ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/heroes_controller.rb:8:in `show'
+Completed 200 OK in 9ms (Views: 1.4ms | ActiveRecord: 0.6ms | Allocations: 595)
+
+
+Started GET "/heroes/2" for ::1 at 2023-03-26 14:58:48 +0300
+Processing by HeroesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mHero Load (0.5ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/heroes_controller.rb:8:in `show'
+Completed 200 OK in 10ms (Views: 1.9ms | ActiveRecord: 0.5ms | Allocations: 595)
+
+
+Started GET "/heroes/3" for ::1 at 2023-03-26 15:01:51 +0300
+Processing by HeroesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mHero Load (0.1ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/heroes_controller.rb:8:in `show'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.1ms | Allocations: 595)
+
+
+Started GET "/heroes/3" for ::1 at 2023-03-26 15:02:10 +0300
+Processing by HeroesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mHero Load (0.6ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/heroes_controller.rb:8:in `show'
+Completed 200 OK in 9ms (Views: 1.8ms | ActiveRecord: 0.6ms | Allocations: 595)
+
+
+Started GET "/heroes/3" for ::1 at 2023-03-26 15:02:11 +0300
+Processing by HeroesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mHero Load (0.2ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/heroes_controller.rb:8:in `show'
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.2ms | Allocations: 595)
+
+
+Started GET "/heroes/4" for ::1 at 2023-03-26 15:02:15 +0300
+Processing by HeroesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mHero Load (0.2ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/heroes_controller.rb:8:in `show'
+Completed 200 OK in 4ms (Views: 0.7ms | ActiveRecord: 0.2ms | Allocations: 595)
+
+
+Started POST "/hero_powers" for 127.0.0.1 at 2023-03-26 15:17:01 +0300
+Processing by HeroPowersController#create as */*
+  Parameters: {"strength"=>"Average", "power_id"=>2, "hero_id"=>5, "hero_power"=>{"strength"=>"Average", "power_id"=>2, "hero_id"=>5}}
+Completed 500 Internal Server Error in 20ms (Allocations: 5415)
+
+
+  
+NoMethodError (undefined method `to' for Heropower (call 'Heropower.connection' to establish a connection):Class):
+  
+app/models/heropower.rb:3:in `<class:Heropower>'
+app/models/heropower.rb:1:in `<top (required)>'
+app/controllers/hero_powers_controller.rb:3:in `create'
+Started POST "/hero_powers" for 127.0.0.1 at 2023-03-26 15:24:39 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HeroPowersController#create as */*
+  Parameters: {"strength"=>"Average", "power_id"=>2, "hero_id"=>5, "hero_power"=>{"strength"=>"Average", "power_id"=>2, "hero_id"=>5}}
+Completed 500 Internal Server Error in 70ms (ActiveRecord: 0.0ms | Allocations: 27945)
+
+
+  
+NoMethodError (undefined method `to' for #<Class:0x00007f27f8a86a20>):
+  
+app/models/heropower.rb:3:in `<class:Heropower>'
+app/models/heropower.rb:1:in `<top (required)>'
+app/controllers/hero_powers_controller.rb:3:in `create'
+Started POST "/hero_powers" for 127.0.0.1 at 2023-03-26 15:25:07 +0300
+Processing by HeroPowersController#create as */*
+  Parameters: {"strength"=>"Average", "power_id"=>2, "hero_id"=>5, "hero_power"=>{"strength"=>"Average", "power_id"=>2, "hero_id"=>5}}
+Completed 500 Internal Server Error in 10ms (Allocations: 5667)
+
+
+  
+NoMethodError (undefined method `to' for Heropower (call 'Heropower.connection' to establish a connection):Class):
+  
+app/models/heropower.rb:3:in `<class:Heropower>'
+app/models/heropower.rb:1:in `<top (required)>'
+app/controllers/hero_powers_controller.rb:3:in `create'
+Started POST "/hero_powers" for 127.0.0.1 at 2023-03-26 15:26:30 +0300
+Processing by HeroPowersController#create as */*
+  Parameters: {"strength"=>"Average", "power_id"=>2, "hero_id"=>5, "hero_power"=>{"strength"=>"Average", "power_id"=>2, "hero_id"=>5}}
+Completed 500 Internal Server Error in 13ms (Allocations: 5421)
+
+
+  
+NoMethodError (undefined method `to' for Heropower (call 'Heropower.connection' to establish a connection):Class):
+  
+app/models/heropower.rb:3:in `<class:Heropower>'
+app/models/heropower.rb:1:in `<top (required)>'
+app/controllers/hero_powers_controller.rb:3:in `create'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.4ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Kamala Khan"], ["super_name", "Ms. Marvel"], ["power_id", nil], ["created_at", "2023-03-26 12:26:46.919182"], ["updated_at", "2023-03-26 12:26:46.919182"]]
+  [1m[36mTRANSACTION (8.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Doreen Green"], ["super_name", "Squirrel Girl"], ["power_id", nil], ["created_at", "2023-03-26 12:26:46.932465"], ["updated_at", "2023-03-26 12:26:46.932465"]]
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Gwen Stacy"], ["super_name", "Spider-Gwen"], ["power_id", nil], ["created_at", "2023-03-26 12:26:46.941236"], ["updated_at", "2023-03-26 12:26:46.941236"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "super strength"], ["description", "gives the wielder super-human strengths"], ["hero_id", nil], ["created_at", "2023-03-26 12:26:46.963897"], ["updated_at", "2023-03-26 12:26:46.963897"]]
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "flight"], ["description", "gives the wielder the ability to fly through the skies at supersonic speed"], ["hero_id", nil], ["created_at", "2023-03-26 12:26:46.972402"], ["updated_at", "2023-03-26 12:26:46.972402"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "invisibility"], ["description", "renders the wielder invisible to the naked eye"], ["hero_id", nil], ["created_at", "2023-03-26 12:26:46.980620"], ["updated_at", "2023-03-26 12:26:46.980620"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Kamala Khan"], ["super_name", "Ms. Marvel"], ["power_id", nil], ["created_at", "2023-03-26 12:26:46.988789"], ["updated_at", "2023-03-26 12:26:46.988789"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Doreen Green"], ["super_name", "Squirrel Girl"], ["power_id", nil], ["created_at", "2023-03-26 12:26:46.997123"], ["updated_at", "2023-03-26 12:26:46.997123"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Gwen Stacy"], ["super_name", "Spider-Gwen"], ["power_id", nil], ["created_at", "2023-03-26 12:26:47.005804"], ["updated_at", "2023-03-26 12:26:47.005804"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.4ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "super strength"], ["description", "gives the wielder super-human strengths"], ["hero_id", nil], ["created_at", "2023-03-26 12:26:47.014115"], ["updated_at", "2023-03-26 12:26:47.014115"]]
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "flight"], ["description", "gives the wielder the ability to fly through the skies at supersonic speed"], ["hero_id", nil], ["created_at", "2023-03-26 12:26:47.022811"], ["updated_at", "2023-03-26 12:26:47.022811"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "invisibility"], ["description", "renders the wielder invisible to the naked eye"], ["hero_id", nil], ["created_at", "2023-03-26 12:26:47.031326"], ["updated_at", "2023-03-26 12:26:47.031326"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Kamala Khan"], ["super_name", "Ms. Marvel"], ["power_id", nil], ["created_at", "2023-03-26 12:27:15.976758"], ["updated_at", "2023-03-26 12:27:15.976758"]]
+  [1m[36mTRANSACTION (7.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Doreen Green"], ["super_name", "Squirrel Girl"], ["power_id", nil], ["created_at", "2023-03-26 12:27:15.989086"], ["updated_at", "2023-03-26 12:27:15.989086"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Gwen Stacy"], ["super_name", "Spider-Gwen"], ["power_id", nil], ["created_at", "2023-03-26 12:27:15.997499"], ["updated_at", "2023-03-26 12:27:15.997499"]]
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "super strength"], ["description", "gives the wielder super-human strengths"], ["hero_id", nil], ["created_at", "2023-03-26 12:27:16.019988"], ["updated_at", "2023-03-26 12:27:16.019988"]]
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "flight"], ["description", "gives the wielder the ability to fly through the skies at supersonic speed"], ["hero_id", nil], ["created_at", "2023-03-26 12:27:16.028384"], ["updated_at", "2023-03-26 12:27:16.028384"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "invisibility"], ["description", "renders the wielder invisible to the naked eye"], ["hero_id", nil], ["created_at", "2023-03-26 12:27:16.036758"], ["updated_at", "2023-03-26 12:27:16.036758"]]
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Kamala Khan"], ["super_name", "Ms. Marvel"], ["power_id", nil], ["created_at", "2023-03-26 12:27:16.045260"], ["updated_at", "2023-03-26 12:27:16.045260"]]
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Doreen Green"], ["super_name", "Squirrel Girl"], ["power_id", nil], ["created_at", "2023-03-26 12:27:16.053117"], ["updated_at", "2023-03-26 12:27:16.053117"]]
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.4ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Gwen Stacy"], ["super_name", "Spider-Gwen"], ["power_id", nil], ["created_at", "2023-03-26 12:27:16.061055"], ["updated_at", "2023-03-26 12:27:16.061055"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "super strength"], ["description", "gives the wielder super-human strengths"], ["hero_id", nil], ["created_at", "2023-03-26 12:27:16.069619"], ["updated_at", "2023-03-26 12:27:16.069619"]]
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.4ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "flight"], ["description", "gives the wielder the ability to fly through the skies at supersonic speed"], ["hero_id", nil], ["created_at", "2023-03-26 12:27:16.077981"], ["updated_at", "2023-03-26 12:27:16.077981"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "invisibility"], ["description", "renders the wielder invisible to the naked eye"], ["hero_id", nil], ["created_at", "2023-03-26 12:27:16.086725"], ["updated_at", "2023-03-26 12:27:16.086725"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Kamala Khan"], ["super_name", "Ms. Marvel"], ["power_id", nil], ["created_at", "2023-03-26 12:27:52.986295"], ["updated_at", "2023-03-26 12:27:52.986295"]]
+  [1m[36mTRANSACTION (7.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Doreen Green"], ["super_name", "Squirrel Girl"], ["power_id", nil], ["created_at", "2023-03-26 12:27:52.998973"], ["updated_at", "2023-03-26 12:27:52.998973"]]
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Gwen Stacy"], ["super_name", "Spider-Gwen"], ["power_id", nil], ["created_at", "2023-03-26 12:27:53.007333"], ["updated_at", "2023-03-26 12:27:53.007333"]]
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "super strength"], ["description", "gives the wielder super-human strengths"], ["hero_id", nil], ["created_at", "2023-03-26 12:27:53.030096"], ["updated_at", "2023-03-26 12:27:53.030096"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "flight"], ["description", "gives the wielder the ability to fly through the skies at supersonic speed"], ["hero_id", nil], ["created_at", "2023-03-26 12:27:53.038770"], ["updated_at", "2023-03-26 12:27:53.038770"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "invisibility"], ["description", "renders the wielder invisible to the naked eye"], ["hero_id", nil], ["created_at", "2023-03-26 12:27:53.047162"], ["updated_at", "2023-03-26 12:27:53.047162"]]
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Kamala Khan"], ["super_name", "Ms. Marvel"], ["power_id", nil], ["created_at", "2023-03-26 12:27:53.055361"], ["updated_at", "2023-03-26 12:27:53.055361"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Doreen Green"], ["super_name", "Squirrel Girl"], ["power_id", nil], ["created_at", "2023-03-26 12:27:53.063653"], ["updated_at", "2023-03-26 12:27:53.063653"]]
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Gwen Stacy"], ["super_name", "Spider-Gwen"], ["power_id", nil], ["created_at", "2023-03-26 12:27:53.071680"], ["updated_at", "2023-03-26 12:27:53.071680"]]
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "super strength"], ["description", "gives the wielder super-human strengths"], ["hero_id", nil], ["created_at", "2023-03-26 12:27:53.080079"], ["updated_at", "2023-03-26 12:27:53.080079"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "flight"], ["description", "gives the wielder the ability to fly through the skies at supersonic speed"], ["hero_id", nil], ["created_at", "2023-03-26 12:27:53.088569"], ["updated_at", "2023-03-26 12:27:53.088569"]]
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "invisibility"], ["description", "renders the wielder invisible to the naked eye"], ["hero_id", nil], ["created_at", "2023-03-26 12:27:53.095754"], ["updated_at", "2023-03-26 12:27:53.095754"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mHero Load (0.2ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mHeropower Create (0.3ms)[0m  [1m[32mINSERT INTO "heropowers" ("strength", "power_id", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["strength", "Average"], ["power_id", 4], ["hero_id", 1], ["created_at", "2023-03-26 12:27:53.146022"], ["updated_at", "2023-03-26 12:27:53.146022"]]
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[36mcommit transaction[0m
+Started POST "/hero_powers" for 127.0.0.1 at 2023-03-26 15:28:10 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HeroPowersController#create as */*
+  Parameters: {"strength"=>"Average", "power_id"=>2, "hero_id"=>5, "hero_power"=>{"strength"=>"Average", "power_id"=>2, "hero_id"=>5}}
+[31mUnpermitted parameter: :hero_power. Context: { controller: HeroPowersController, action: create, request: #<ActionDispatch::Request:0x00007f83182cf630>, params: {"strength"=>"Average", "power_id"=>2, "hero_id"=>5, "controller"=>"hero_powers", "action"=>"create", "hero_power"=>{"strength"=>"Average", "power_id"=>2, "hero_id"=>5}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/hero_powers_controller.rb:3:in `create'
+  [1m[36mPower Load (0.3ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/hero_powers_controller.rb:3:in `create'
+  [1m[36mHero Load (0.2ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/hero_powers_controller.rb:3:in `create'
+  [1m[36mHeropower Create (0.3ms)[0m  [1m[32mINSERT INTO "heropowers" ("strength", "power_id", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["strength", "Average"], ["power_id", 2], ["hero_id", 5], ["created_at", "2023-03-26 12:28:10.682218"], ["updated_at", "2023-03-26 12:28:10.682218"]]
+  ↳ app/controllers/hero_powers_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/hero_powers_controller.rb:3:in `create'
+Completed 500 Internal Server Error in 153ms (ActiveRecord: 8.1ms | Allocations: 83122)
+
+
+  
+NoMethodError (undefined method `heroes' for #<Heropower:0x00007f8318c45980>
+Did you mean?  hero
+               hero=):
+  
+app/controllers/hero_powers_controller.rb:4:in `create'
+Started POST "/hero_powers" for 127.0.0.1 at 2023-03-26 15:28:38 +0300
+Processing by HeroPowersController#create as */*
+  Parameters: {"strength"=>"Average", "power_id"=>2, "hero_id"=>5, "hero_power"=>{"strength"=>"Average", "power_id"=>2, "hero_id"=>5}}
+[31mUnpermitted parameter: :hero_power. Context: { controller: HeroPowersController, action: create, request: #<ActionDispatch::Request:0x00007f831855c3f8>, params: {"strength"=>"Average", "power_id"=>2, "hero_id"=>5, "controller"=>"hero_powers", "action"=>"create", "hero_power"=>{"strength"=>"Average", "power_id"=>2, "hero_id"=>5}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/hero_powers_controller.rb:3:in `create'
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/hero_powers_controller.rb:3:in `create'
+  [1m[36mHero Load (0.1ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/hero_powers_controller.rb:3:in `create'
+  [1m[36mHeropower Create (0.4ms)[0m  [1m[32mINSERT INTO "heropowers" ("strength", "power_id", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["strength", "Average"], ["power_id", 2], ["hero_id", 5], ["created_at", "2023-03-26 12:28:38.731260"], ["updated_at", "2023-03-26 12:28:38.731260"]]
+  ↳ app/controllers/hero_powers_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (7.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/hero_powers_controller.rb:3:in `create'
+Completed 200 OK in 69ms (Views: 0.6ms | ActiveRecord: 12.5ms | Allocations: 16505)
+
+
+Started POST "/hero_powers" for 127.0.0.1 at 2023-03-26 15:31:29 +0300
+Processing by HeroPowersController#create as */*
+  Parameters: {"strength"=>"Average", "power_id"=>5, "hero_id"=>5, "hero_power"=>{"strength"=>"Average", "power_id"=>5, "hero_id"=>5}}
+[31mUnpermitted parameter: :hero_power. Context: { controller: HeroPowersController, action: create, request: #<ActionDispatch::Request:0x00007f83183e1528>, params: {"strength"=>"Average", "power_id"=>5, "hero_id"=>5, "controller"=>"hero_powers", "action"=>"create", "hero_power"=>{"strength"=>"Average", "power_id"=>5, "hero_id"=>5}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/hero_powers_controller.rb:3:in `create'
+  [1m[36mPower Load (0.3ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/hero_powers_controller.rb:3:in `create'
+  [1m[36mHero Load (0.1ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/hero_powers_controller.rb:3:in `create'
+  [1m[36mHeropower Create (0.4ms)[0m  [1m[32mINSERT INTO "heropowers" ("strength", "power_id", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["strength", "Average"], ["power_id", 5], ["hero_id", 5], ["created_at", "2023-03-26 12:31:29.775798"], ["updated_at", "2023-03-26 12:31:29.775798"]]
+  ↳ app/controllers/hero_powers_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (7.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/hero_powers_controller.rb:3:in `create'
+Completed 200 OK in 23ms (Views: 0.6ms | ActiveRecord: 8.9ms | Allocations: 3500)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.4ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Kamala Khan"], ["super_name", "Ms. Marvel"], ["power_id", nil], ["created_at", "2023-03-26 12:31:57.060110"], ["updated_at", "2023-03-26 12:31:57.060110"]]
+  [1m[36mTRANSACTION (7.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Doreen Green"], ["super_name", "Squirrel Girl"], ["power_id", nil], ["created_at", "2023-03-26 12:31:57.073025"], ["updated_at", "2023-03-26 12:31:57.073025"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Gwen Stacy"], ["super_name", "Spider-Gwen"], ["power_id", nil], ["created_at", "2023-03-26 12:31:57.081784"], ["updated_at", "2023-03-26 12:31:57.081784"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.4ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "super strength"], ["description", "gives the wielder super-human strengths"], ["hero_id", nil], ["created_at", "2023-03-26 12:31:57.104561"], ["updated_at", "2023-03-26 12:31:57.104561"]]
+  [1m[36mTRANSACTION (5.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "flight"], ["description", "gives the wielder the ability to fly through the skies at supersonic speed"], ["hero_id", nil], ["created_at", "2023-03-26 12:31:57.114631"], ["updated_at", "2023-03-26 12:31:57.114631"]]
+  [1m[36mTRANSACTION (8.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "invisibility"], ["description", "renders the wielder invisible to the naked eye"], ["hero_id", nil], ["created_at", "2023-03-26 12:31:57.127744"], ["updated_at", "2023-03-26 12:31:57.127744"]]
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Kamala Khan"], ["super_name", "Ms. Marvel"], ["power_id", nil], ["created_at", "2023-03-26 12:31:57.136418"], ["updated_at", "2023-03-26 12:31:57.136418"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Doreen Green"], ["super_name", "Squirrel Girl"], ["power_id", nil], ["created_at", "2023-03-26 12:31:57.144960"], ["updated_at", "2023-03-26 12:31:57.144960"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Gwen Stacy"], ["super_name", "Spider-Gwen"], ["power_id", nil], ["created_at", "2023-03-26 12:31:57.153590"], ["updated_at", "2023-03-26 12:31:57.153590"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "super strength"], ["description", "gives the wielder super-human strengths"], ["hero_id", nil], ["created_at", "2023-03-26 12:31:57.162416"], ["updated_at", "2023-03-26 12:31:57.162416"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "flight"], ["description", "gives the wielder the ability to fly through the skies at supersonic speed"], ["hero_id", nil], ["created_at", "2023-03-26 12:31:57.170893"], ["updated_at", "2023-03-26 12:31:57.170893"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "invisibility"], ["description", "renders the wielder invisible to the naked eye"], ["hero_id", nil], ["created_at", "2023-03-26 12:31:57.179541"], ["updated_at", "2023-03-26 12:31:57.179541"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mHero Load (0.1ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mHeropower Create (0.3ms)[0m  [1m[32mINSERT INTO "heropowers" ("strength", "power_id", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["strength", "Average"], ["power_id", 4], ["hero_id", 1], ["created_at", "2023-03-26 12:31:57.228157"], ["updated_at", "2023-03-26 12:31:57.228157"]]
+  [1m[36mTRANSACTION (5.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHeropower Create (0.3ms)[0m  [1m[32mINSERT INTO "heropowers" ("strength", "power_id", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["strength", "Strong"], ["power_id", 38], ["hero_id", 37], ["created_at", "2023-03-26 12:31:57.237459"], ["updated_at", "2023-03-26 12:31:57.237459"]]
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHeropower Create (0.4ms)[0m  [1m[32mINSERT INTO "heropowers" ("strength", "power_id", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["strength", "Weak"], ["power_id", 37], ["hero_id", 38], ["created_at", "2023-03-26 12:31:57.246459"], ["updated_at", "2023-03-26 12:31:57.246459"]]
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHeropower Create (0.3ms)[0m  [1m[32mINSERT INTO "heropowers" ("strength", "power_id", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["strength", "Average"], ["power_id", 39], ["hero_id", 38], ["created_at", "2023-03-26 12:31:57.255286"], ["updated_at", "2023-03-26 12:31:57.255286"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHeropower Create (0.3ms)[0m  [1m[32mINSERT INTO "heropowers" ("strength", "power_id", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["strength", "Average"], ["power_id", 38], ["hero_id", 39], ["created_at", "2023-03-26 12:31:57.264046"], ["updated_at", "2023-03-26 12:31:57.264046"]]
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHeropower Create (0.3ms)[0m  [1m[32mINSERT INTO "heropowers" ("strength", "power_id", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["strength", "Weak"], ["power_id", 39], ["hero_id", 39], ["created_at", "2023-03-26 12:31:57.272624"], ["updated_at", "2023-03-26 12:31:57.272624"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.4ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Kamala Khan"], ["super_name", "Ms. Marvel"], ["power_id", nil], ["created_at", "2023-03-26 12:32:23.007004"], ["updated_at", "2023-03-26 12:32:23.007004"]]
+  [1m[36mTRANSACTION (7.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Doreen Green"], ["super_name", "Squirrel Girl"], ["power_id", nil], ["created_at", "2023-03-26 12:32:23.019759"], ["updated_at", "2023-03-26 12:32:23.019759"]]
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Gwen Stacy"], ["super_name", "Spider-Gwen"], ["power_id", nil], ["created_at", "2023-03-26 12:32:23.028287"], ["updated_at", "2023-03-26 12:32:23.028287"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "super strength"], ["description", "gives the wielder super-human strengths"], ["hero_id", nil], ["created_at", "2023-03-26 12:32:23.052052"], ["updated_at", "2023-03-26 12:32:23.052052"]]
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "flight"], ["description", "gives the wielder the ability to fly through the skies at supersonic speed"], ["hero_id", nil], ["created_at", "2023-03-26 12:32:23.060486"], ["updated_at", "2023-03-26 12:32:23.060486"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "invisibility"], ["description", "renders the wielder invisible to the naked eye"], ["hero_id", nil], ["created_at", "2023-03-26 12:32:23.068598"], ["updated_at", "2023-03-26 12:32:23.068598"]]
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.4ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Kamala Khan"], ["super_name", "Ms. Marvel"], ["power_id", nil], ["created_at", "2023-03-26 12:32:23.077276"], ["updated_at", "2023-03-26 12:32:23.077276"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Doreen Green"], ["super_name", "Squirrel Girl"], ["power_id", nil], ["created_at", "2023-03-26 12:32:23.086144"], ["updated_at", "2023-03-26 12:32:23.086144"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("name", "super_name", "power_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Gwen Stacy"], ["super_name", "Spider-Gwen"], ["power_id", nil], ["created_at", "2023-03-26 12:32:23.094966"], ["updated_at", "2023-03-26 12:32:23.094966"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.4ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "super strength"], ["description", "gives the wielder super-human strengths"], ["hero_id", nil], ["created_at", "2023-03-26 12:32:23.103684"], ["updated_at", "2023-03-26 12:32:23.103684"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "flight"], ["description", "gives the wielder the ability to fly through the skies at supersonic speed"], ["hero_id", nil], ["created_at", "2023-03-26 12:32:23.112408"], ["updated_at", "2023-03-26 12:32:23.112408"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "invisibility"], ["description", "renders the wielder invisible to the naked eye"], ["hero_id", nil], ["created_at", "2023-03-26 12:32:23.120740"], ["updated_at", "2023-03-26 12:32:23.120740"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mHero Load (0.1ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mHeropower Create (0.3ms)[0m  [1m[32mINSERT INTO "heropowers" ("strength", "power_id", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["strength", "Average"], ["power_id", 4], ["hero_id", 1], ["created_at", "2023-03-26 12:32:23.170514"], ["updated_at", "2023-03-26 12:32:23.170514"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHeropower Create (0.4ms)[0m  [1m[32mINSERT INTO "heropowers" ("strength", "power_id", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["strength", "Strong"], ["power_id", 44], ["hero_id", 43], ["created_at", "2023-03-26 12:32:23.178204"], ["updated_at", "2023-03-26 12:32:23.178204"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHeropower Create (0.3ms)[0m  [1m[32mINSERT INTO "heropowers" ("strength", "power_id", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["strength", "Weak"], ["power_id", 43], ["hero_id", 44], ["created_at", "2023-03-26 12:32:23.187194"], ["updated_at", "2023-03-26 12:32:23.187194"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHeropower Create (0.3ms)[0m  [1m[32mINSERT INTO "heropowers" ("strength", "power_id", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["strength", "Average"], ["power_id", 45], ["hero_id", 44], ["created_at", "2023-03-26 12:32:23.195889"], ["updated_at", "2023-03-26 12:32:23.195889"]]
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHeropower Create (0.4ms)[0m  [1m[32mINSERT INTO "heropowers" ("strength", "power_id", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["strength", "Average"], ["power_id", 44], ["hero_id", 45], ["created_at", "2023-03-26 12:32:23.204504"], ["updated_at", "2023-03-26 12:32:23.204504"]]
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHeropower Create (0.3ms)[0m  [1m[32mINSERT INTO "heropowers" ("strength", "power_id", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["strength", "Weak"], ["power_id", 45], ["hero_id", 45], ["created_at", "2023-03-26 12:32:23.213193"], ["updated_at", "2023-03-26 12:32:23.213193"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+Started POST "/hero_powers" for 127.0.0.1 at 2023-03-26 15:32:46 +0300
+Processing by HeroPowersController#create as */*
+  Parameters: {"strength"=>"Average", "power_id"=>6, "hero_id"=>2, "hero_power"=>{"strength"=>"Average", "power_id"=>6, "hero_id"=>2}}
+[31mUnpermitted parameter: :hero_power. Context: { controller: HeroPowersController, action: create, request: #<ActionDispatch::Request:0x00007f830400dbb8>, params: {"strength"=>"Average", "power_id"=>6, "hero_id"=>2, "controller"=>"hero_powers", "action"=>"create", "hero_power"=>{"strength"=>"Average", "power_id"=>6, "hero_id"=>2}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/hero_powers_controller.rb:3:in `create'
+  [1m[36mPower Load (0.5ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/hero_powers_controller.rb:3:in `create'
+  [1m[36mHero Load (0.6ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/hero_powers_controller.rb:3:in `create'
+  [1m[36mHeropower Create (0.4ms)[0m  [1m[32mINSERT INTO "heropowers" ("strength", "power_id", "hero_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["strength", "Average"], ["power_id", 6], ["hero_id", 2], ["created_at", "2023-03-26 12:32:46.079217"], ["updated_at", "2023-03-26 12:32:46.079217"]]
+  ↳ app/controllers/hero_powers_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (8.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/hero_powers_controller.rb:3:in `create'
+Completed 200 OK in 23ms (Views: 0.5ms | ActiveRecord: 9.7ms | Allocations: 3500)
+
+
+Started GET "/heroes/5" for ::1 at 2023-03-26 15:34:19 +0300
+Processing by HeroesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mHero Load (0.1ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/heroes_controller.rb:8:in `show'
+Completed 200 OK in 12ms (Views: 0.6ms | ActiveRecord: 1.0ms | Allocations: 5023)
+
+
+Started GET "/heroes/3" for ::1 at 2023-03-26 15:34:41 +0300
+Processing by HeroesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mHero Load (0.5ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/heroes_controller.rb:8:in `show'
+Completed 200 OK in 17ms (Views: 0.4ms | ActiveRecord: 2.0ms | Allocations: 5016)
+
+
